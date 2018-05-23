@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Module Index &mdash; Cookbook 0.01 documentation</title>
+  <title>time_and_date module &mdash; Cookbook 0.01 documentation</title>
   
 
   
@@ -35,14 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Cookbook 0.01 documentation" href="index.html"/>
- 
-
-    <script type="text/javascript">
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
-
+    <link rel="top" title="Cookbook 0.01 documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -96,7 +89,10 @@
             
             
               <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">time_and_date module</a></li>
+</ul>
+</div>
             
           
         </div>
@@ -139,12 +135,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Python Module Index</li>
+      <li>time_and_date module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/time_and_date.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -156,41 +154,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
+  <div class="section" id="module-time_and_date">
+<span id="time-and-date-module"></span><h1>time_and_date module<a class="headerlink" href="#module-time_and_date" title="Permalink to this headline">¶</a></h1>
+<p>Pandas date and time operations</p>
+<p>This module contains quick recipes to operate with time, dates and timestamps
+in Pandas.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>$ python recipe_extract_timestamp_values.py</dd>
+<dt>Todo:</dt>
+<dd><ul class="first last simple">
+<li>Include more examples</li>
+<li>You have to also use <code class="docutils literal"><span class="pre">sphinx.ext.todo</span></code> extension</li>
+</ul>
+</dd>
+</dl>
+<dl class="function">
+<dt id="time_and_date.recipe_extract_timestamp_values">
+<code class="descclassname">time_and_date.</code><code class="descname">recipe_extract_timestamp_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/time_and_date.html#recipe_extract_timestamp_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#time_and_date.recipe_extract_timestamp_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract features from timestamp columns</p>
+<p>The following recipe shows how to extract meaningful
+values from a timestamp.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><p class="first">Create a Pandas Series object with one timestamp and extract the month:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span>$ df = pd.DataFrame([{&#39;Timestamp&#39;: pd.tslib.Timestamp.now()}]);
+$ df[&#39;month&#39;]       = df.Timestamp.dt.month;
+$ df[&#39;hour&#39;]        = df.Timestamp.dt.hour;
+$ df[&#39;day&#39;]         = df.Timestamp.dt.day;
+$ df[&#39;day_of_week&#39;] = df.Timestamp.dt.dayofweek;
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Category: Pandas
+Topic: Time and date</p>
+</dd></dl>
 
-   <h1>Python Module Index</h1>
+<dl class="function">
+<dt id="time_and_date.recipe_filter_df_by_timestamp_values">
+<code class="descclassname">time_and_date.</code><code class="descname">recipe_filter_df_by_timestamp_values</code><span class="sig-paren">(</span><em>df</em>, <em>minDate</em>, <em>maxDate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/time_and_date.html#recipe_filter_df_by_timestamp_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#time_and_date.recipe_filter_df_by_timestamp_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter a timestamp columns</p>
+<p>This recipe shows how to filter a DF by timestamp dates returning both the
+filtered DF and the indexes.</p>
+<p>Examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ minTimeStamp = dt.datetime(2017, 5, 1, 14, 00);
+$ maxTimeStamp = dt.datetime(2017, 12, 1, 17, 00);
+$ dates = [pd.Timestamp(&#39;2017-04-21&#39;), pd.Timestamp(&#39;2017-07-01&#39;), pd.Timestamp(&#39;2018-01-03&#39;)]
+$ ts = pd.Series(np.random.randn(3), dates)
+$ df = pd.Series(np.random.randn(3), dates)
+$ a,b = recipe_filter_df_by_timestamp_values(df, minDate, maxDate);
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>df (DF): A dataframe with a column named ‘Timestamp’.
+minDate (datetime): The minimum date.
+maxDate (datetime): The maximum date.</dd>
+<dt>Returns:</dt>
+<dd>df_filtered: The filtered DF.
+idx_valid_dates: The indexes of the valid dates.</dd>
+</dl>
+<p>Category: Pandas
+Topic: Time and date</p>
+</dd></dl>
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-g"><strong>g</strong></a> | 
-   <a href="#cap-t"><strong>t</strong></a> | 
-   <a href="#cap-u"><strong>u</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-g"><td></td><td>
-       <strong>g</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="groupby.html#module-groupby"><code class="xref">groupby</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-t"><td></td><td>
-       <strong>t</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="time_and_date.html#module-time_and_date"><code class="xref">time_and_date</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-u"><td></td><td>
-       <strong>u</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="unnestList.html#module-unnestList"><code class="xref">unnestList</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+</div>
 
 
            </div>

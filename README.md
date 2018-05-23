@@ -14,11 +14,13 @@ Using reStructuredText. Follow https://devguide.python.org/
 * It will ask for a root folder ('docs'). 
 * Make sure the autodoc plugin is enabled.
 * sphinx-apidoc -o docs example
+    * (sphinx-apidoc -o docs . -f)
 * emacs conf.py
 * In the conf.py file add 
-** 	import os
-** 	import sys
-** 	sys.path.append(os.path.abspath('..'))
+    * 	import os
+    * 	import sys
+    * 	sys.path.append(os.path.abspath('..'))
+* cd docs
 * make html
 
 ## Guidelines
